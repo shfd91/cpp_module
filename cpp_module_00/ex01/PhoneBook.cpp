@@ -6,7 +6,7 @@
 /*   By: sanghole <sanghole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:03:56 by sanghole          #+#    #+#             */
-/*   Updated: 2022/04/25 05:40:23 by sanghole         ###   ########.fr       */
+/*   Updated: 2022/04/25 14:45:09 by sanghole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void PhoneBook::search()
 		contacts[i].printContact(i);
 	}
 	std::cout << "Enter index" << std::endl;
-	std::cin >> input_index; // int형이라서 발생하는 문제.
+	std::cin >> input_index;
 	if (std::cin.fail())
 	{
 		std::cout << "enter a number" << std::endl;

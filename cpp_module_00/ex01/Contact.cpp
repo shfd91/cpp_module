@@ -6,7 +6,7 @@
 /*   By: sanghole <sanghole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:03:56 by sanghole          #+#    #+#             */
-/*   Updated: 2022/03/17 13:50:24 by sanghole         ###   ########.fr       */
+/*   Updated: 2022/04/25 14:14:37 by sanghole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	Contact::limitString()
 
 void	Contact::addContact()
 {
-	std::cout << "input first_name" << std::endl;
+	std::cout << "input firs_name" << std::endl;
 	std::cin >> first_name;
 	std::cout << "input last_name" << std::endl;
 	std::cin >> last_name;
