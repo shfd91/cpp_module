@@ -1,79 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sanghole <sanghole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:03:56 by sanghole          #+#    #+#             */
-/*   Updated: 2022/03/08 11:21:28 by sanghole         ###   ########.fr       */
+/*   Updated: 2022/04/25 05:40:23 by sanghole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#include "PhoneBook.hpp"
 
-class Contact // 연락처의 각 정보의 멤버 변수들을 가지고 있는 클래스
+PhoneBook::PhoneBook() : index(0), num(0)
 {
-	std::string first_name;
-	std::string last_name;
-	std::string nickname;
-	std::string phone_number;
-	std::string darkest_secret;
-	// public:
-};
 
-class PhoneBook // Contact 배열을 포함하고 있으며, 기능 구현의 멤버 함수를 포함하고 있는 클래스
-{
-	Contact	contacts[8];
-	public:
-		// PhoneBook(); // 자동 생성자? 간단하게 하는방법으로 하기
-		void add();
-		void search();
-};
+}
 
 void PhoneBook::add()
 {
-	std::cout << "input first_name" << std::endl;
-	std::cin >> first_name;
-	std::cout << "input last_name" << std::endl;
-	std::cin >> last_name;
-	std::cout << "input nickname" << std::endl;
-	std::cin >> nickname;
-	std::cout << "input phone_number" << std::endl;
-	std::cin >> phone_number;
-	std::cout << "input darkest_secret" << std::endl;
-	std::cin >> darkest_secret;
+	if (num < 8)
+		num++;
+	if (index < 8)
+		index++;
+	else
+		index = 1;
+	contacts[index - 1].addContact();
 }
 
 void PhoneBook::search()
 {
-	// 인덱스 추가
-	std::cout << first_name;
-	std::cout << " | ";
-	std::cout << last_name;
-	std::cout << " | ";
-	std::cout << nickname << std::endl;
-}
+	int	input_index;
 
-int main(void)
-{
-	std::string	cmd;
-	PhoneBook pb;
-
-	// std::getline(std::cin, cmd);
-	for (;;)
+	input_index = 0;
+	if (num == 0)
 	{
-		std::cout << "Enter the command(ADD, SEARCH, EXIT)" << std::endl;
-		std::cin >> cmd;
-		if (std::cin.eof())
-			return 0;
-		if (cmd == "ADD")
-			pb.add();
-		else if (cmd == "SEARCH")
-			pb.search();
-		else if (cmd == "EXIT")
-			break ;
+		std::cout << "There is no phone book listing" << std::endl;
+		return ;
 	}
-	return 0;
+	for (int i = 0; i < num; i++)
+	{
+		contacts[i].printContact(i);
+	}
+	std::cout << "Enter index" << std::endl;
+	std::cin >> input_index; // int형이라서 발생하는 문제.
+	if (std::cin.fail())
+	{
+		std::cout << "enter a number" << std::endl;
+		std::cin.clear();
+		std::cin.ignore(100, '\n');
+	}
+	else if (input_index > 0 && input_index < num + 1)
+		contacts[input_index - 1].printContact(input_index - 1);
+	else
+		std::cout << "Please enter another number." << std::endl;
 }

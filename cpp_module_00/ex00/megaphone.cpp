@@ -6,7 +6,7 @@
 /*   By: sanghole <sanghole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:03:56 by sanghole          #+#    #+#             */
-/*   Updated: 2022/03/15 17:17:16 by sanghole         ###   ########.fr       */
+/*   Updated: 2022/04/25 05:07:06 by sanghole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,25 +23,14 @@ int main(int argc, char *argv[])
 	{
 		for (int i = 1; i < argc; i++)
 		{
-			std::cout << strlen(argv[i]) << std::endl; // 지우기 git test
-			// for (int j = 0; j < argv[i][j]; j++)
-			for (int j = 0; j < (int)strlen(argv[i]); j++) // strlen 사용 가능?
+			std::string tmp(argv[i]);
+			for (int j = 0; j < (int)tmp.length(); j++)
 			{
-				if (argv[i][j] == '"')
-					j++;
-				if (argv[i][j] >= 97 && argv[i][j] <= 122)
-					str.append(1, argv[i][j] - 32);
+				if (tmp[j] >= 97 && tmp[j] <= 122)
+					str.append(1, tmp[j] - 32);
 				else
-					str.append(1, argv[i][j]);
+					str.append(1, tmp[j]);
 			}
-			str += ' ';
-		}
-		for (;;)
-		{
-			if (str.find("  ") != std::string::npos)
-				str.replace(str.find("  "), 2, " ");
-			else
-				break ;
 		}
 		std::cout << str << std::endl;
 	}

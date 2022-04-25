@@ -6,7 +6,7 @@
 #    By: sanghole <sanghole@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 16:55:00 by sanghole          #+#    #+#              #
-#    Updated: 2022/03/07 15:17:50 by sanghole         ###   ########.fr        #
+#    Updated: 2022/03/17 23:20:12 by sanghole         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,10 @@ AR		=	ar rcs
 RM		=	rm -f
 ASAN	=	-g3 -fsanitize=address
 
-NAME	=	megaphone
+NAME	=	Account
 
-SRC		=	megaphone.cpp
+SRC		=	Account.cpp \
+			tests.cpp
 
 OBJ		=	${SRC:.c=.o}
 
@@ -31,7 +32,6 @@ all			: $(NAME)
 
 $(NAME) : $(OBJ)
 	$(CC) $(DEBUG) $(CFLAGS) $(CPP98) $(OBJ) -o $(NAME)
-# $(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 clean		:
 	$(RM) *.o

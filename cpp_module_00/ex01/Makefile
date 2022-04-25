@@ -6,7 +6,7 @@
 #    By: sanghole <sanghole@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 16:55:00 by sanghole          #+#    #+#              #
-#    Updated: 2022/03/07 18:06:40 by sanghole         ###   ########.fr        #
+#    Updated: 2022/03/29 00:38:45 by sanghole         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,9 @@ ASAN	=	-g3 -fsanitize=address
 
 NAME	=	PhoneBook
 
-SRC		=	PhoneBook.cpp
+SRC		=	main.cpp \
+			Contact.cpp \
+			Phonebook.cpp
 
 OBJ		=	${SRC:.c=.o}
 
@@ -31,7 +33,6 @@ all			: $(NAME)
 
 $(NAME) : $(OBJ)
 	$(CC) $(DEBUG) $(CFLAGS) $(CPP98) $(OBJ) -o $(NAME)
-# $(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 clean		:
 	$(RM) *.o
