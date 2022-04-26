@@ -6,7 +6,7 @@
 /*   By: sanghole <sanghole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:03:56 by sanghole          #+#    #+#             */
-/*   Updated: 2022/04/25 14:45:09 by sanghole         ###   ########.fr       */
+/*   Updated: 2022/04/27 05:13:42 by sanghole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,39 +19,43 @@ PhoneBook::PhoneBook() : index(0), num(0)
 
 void PhoneBook::add()
 {
-	if (num < 8)
-		num++;
-	if (index < 8)
-		index++;
+	if ((contacts[index].addContact()) == 0)
+	{
+		if (num < 8)
+			num++;
+		if (index < 7)
+			index++;
+		else
+			index = 0;
+	}
 	else
-		index = 1;
-	contacts[index - 1].addContact();
+		return ;
 }
 
 void PhoneBook::search()
 {
 	int	input_index;
+	std::string tmp;
 
-	input_index = 0;
 	if (num == 0)
 	{
 		std::cout << "There is no phone book listing" << std::endl;
-		return ;
+		return;
 	}
 	for (int i = 0; i < num; i++)
-	{
 		contacts[i].printContact(i);
-	}
 	std::cout << "Enter index" << std::endl;
-	std::cin >> input_index;
-	if (std::cin.fail())
+	std::getline(std::cin, tmp);
+	if (std::cin.eof())
+		return;
+	else if (tmp.operator[](1))
 	{
-		std::cout << "enter a number" << std::endl;
-		std::cin.clear();
-		std::cin.ignore(100, '\n');
+		std::cout << "Please enter another number." << std::endl;
+		return;
 	}
-	else if (input_index > 0 && input_index < num + 1)
-		contacts[input_index - 1].printContact(input_index - 1);
+	input_index = tmp.operator[](0) - 48;
+	if (num > 0 && input_index < num + 1)
+		contacts[input_index - 1].printAll();
 	else
 		std::cout << "Please enter another number." << std::endl;
 }

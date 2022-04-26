@@ -6,7 +6,7 @@
 /*   By: sanghole <sanghole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:03:56 by sanghole          #+#    #+#             */
-/*   Updated: 2022/04/10 03:56:49 by sanghole         ###   ########.fr       */
+/*   Updated: 2022/04/27 05:11:38 by sanghole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,13 @@ class Contact
 		std::string phone_number;
 		std::string darkest_secret;
 	public:
-		void	addContact();
+		Contact();
+		int		addContact();
 		void	printContact(int index);
-		void	correctString(std::string& str);
-		void	limitString();
+		void	limitString(std::string &str, std::string &tmp);
+		void	printAll();
+		int		printNothing();
+		void	setContact(std::string &first, std::string &last, std::string &nick, std::string &num, std::string &sec);
 };
 
 #endif
