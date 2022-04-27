@@ -6,7 +6,7 @@
 #    By: sanghole <sanghole@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 16:55:00 by sanghole          #+#    #+#              #
-#    Updated: 2022/03/20 17:58:15 by sanghole         ###   ########.fr        #
+#    Updated: 2022/04/27 05:30:36 by sanghole         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,10 +18,10 @@ AR		=	ar rcs
 RM		=	rm -f
 ASAN	=	-g3 -fsanitize=address
 
-NAME	=	karenFilter
+NAME	=	HarlFilter
 
 SRC		=	main.cpp \
-			Karen.cpp
+			Harl.cpp
 
 OBJ		=	${SRC:.c=.o}
 

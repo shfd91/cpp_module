@@ -1,4 +1,4 @@
-#include "Karen.hpp"
+#include "Harl.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -7,7 +7,7 @@ int main(int argc, char* argv[])
 		std::cout << "error" << std::endl;
 		return (1);
 	}
-	Karen karen;
-	karen.complain(argv[1]);
+	Harl harl;
+	harl.complain(argv[1]);
 	return (0);
 }

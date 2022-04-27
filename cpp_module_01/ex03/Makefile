@@ -6,7 +6,7 @@
 #    By: sanghole <sanghole@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 16:55:00 by sanghole          #+#    #+#              #
-#    Updated: 2022/03/18 18:13:33 by sanghole         ###   ########.fr        #
+#    Updated: 2022/04/27 05:28:30 by sanghole         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,10 @@ ASAN	=	-g3 -fsanitize=address
 
 NAME	=	main
 
-SRC		=	main.cpp
+SRC		=	main.cpp \
+			HumanA.cpp \
+			HumanB.cpp \
+			Weapon.cpp
 
 OBJ		=	${SRC:.c=.o}
 

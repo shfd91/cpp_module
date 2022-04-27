@@ -16,6 +16,6 @@ int main(void)
 	randomChump("zombie3");
 
 	delete zombie2;
-	system("leaks Zombie");
+	// system("leaks Zombie");
 	return (0);
 }

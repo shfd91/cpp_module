@@ -9,43 +9,49 @@ int main(int argc, char* argv[])
 	if (argc != 4)
 	{
 		std::cout << "[Err] Need 3 Argument" << std::endl;
+		std::cout << "./main [ file name ] [ sentence ] [ sentence to change ]" << std::endl;
 		return (0);
-	}
-	for (int i = 1; i < 4; i++)
-	{
-		if (argv[i] == NULL)
-		{
-			std::cout << "[Err] empty Argument" << std::endl;
-			return (0);
-		}
 	}
 	std::string file_name = argv[1];
 	std::string s1 = argv[2];
 	std::string s2 = argv[3];
-	std::string replace_name = file_name + ".replace";
-	std::ifstream fin(file_name);
-	if (fin.fail())
+	if (file_name.empty() || s1.empty() || s2.empty())
+	{
+		std::cout << "[Err] empty Argument" << std::endl;
+		return (0);
+	}
+	if (!(s1.compare(s2)))
+	{
+		std::cout << "[Err] s1 and s2 are the same." << std::endl;
+		return (0);
+	}
+	std::ifstream fin(file_name, std::ios_base::in);
+	if (!fin.is_open())
 	{
 		std::cout << "[Err] fail open" << std::endl;
 		return (1);
 	}
-	std::ofstream fout(replace_name);
-	if (fout.fail())
+	std::string replace_name = file_name.append(".replace");
+	std::ofstream fout(replace_name, std::ios_base::out);
+	if (!fout.is_open())
 	{
 		std::cout << "[Err] fail create" << std::endl;
 		return (1);
 	}
 	while (getline(fin, line))
 	{
-		int	index;
-		while (line.find(s1) != std::string::npos)
+		int	index = 0;
+		int	i = 0;
+		while (index != -1)
 		{
-			index = line.find(s1);
+			index = line.find(s1, i);
+			if (index == -1)
+				break ;
 			line.erase(index, s1.length());
 			line.insert(index, s2);
+			i += (index + s2.length());
 		}
-		fout << line << '\n';
-
+		fout << line + '\n';
 	}
 	fin.close();
 	fout.close();

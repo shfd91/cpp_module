@@ -7,7 +7,7 @@ int main(void)
 	Fixed	const c(42.42f); // 실수형 생성자
 	Fixed 	const d(b); // 복사 생성자
 
-	a = Fixed(1234.4321f); // 깊은 복사
+	a = Fixed(1234.4321f); //할당 연산자 오버로딩
 
 	std::cout << "a is " << a << std::endl;
 	std::cout << "b is " << b << std::endl;
