@@ -6,7 +6,7 @@
 #    By: sanghole <sanghole@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 16:55:00 by sanghole          #+#    #+#              #
-#    Updated: 2022/03/18 14:26:48 by sanghole         ###   ########.fr        #
+#    Updated: 2022/04/27 18:09:42 by sanghole         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ OBJ		=	${SRC:.c=.o}
 all			: $(NAME)
 
 $(NAME) : $(OBJ)
-	$(CC) $(DEBUG) $(CFLAGS) $(CPP98) $(OBJ) -o $(NAME)
+	$(CC) $(CFLAGS) $(CPP98) $(OBJ) -o $(NAME)
 
 clean		:
 	$(RM) *.o
