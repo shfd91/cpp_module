@@ -45,5 +45,4 @@ void Harl::complain(std::string level)
 		i++;
 	(this->*funcs[i])();
 	return ;
-	// while (i < 4 && levels[i] != level)
 }

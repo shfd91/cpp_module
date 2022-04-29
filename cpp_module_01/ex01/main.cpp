@@ -14,5 +14,6 @@ int main(void)
 	for (int i = 0; i < 5; i++)
 		zombie[i].announce();
 	delete[] zombie;
+	system("leaks Zombie");
 	return (0);
 }

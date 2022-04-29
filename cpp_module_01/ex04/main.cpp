@@ -15,7 +15,7 @@ int main(int argc, char* argv[])
 	std::string file_name = argv[1];
 	std::string s1 = argv[2];
 	std::string s2 = argv[3];
-	if (file_name.empty() || s1.empty() || s2.empty())
+	if (file_name.empty() || s1.empty())
 	{
 		std::cout << "[Err] empty Argument" << std::endl;
 		return (0);

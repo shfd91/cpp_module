@@ -6,7 +6,7 @@
 #    By: sanghole <sanghole@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 16:55:00 by sanghole          #+#    #+#              #
-#    Updated: 2022/03/20 19:08:55 by sanghole         ###   ########.fr        #
+#    Updated: 2022/04/29 17:59:37 by sanghole         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ AR		=	ar rcs
 RM		=	rm -f
 ASAN	=	-g3 -fsanitize=address
 
-NAME	=	main
+NAME	=	Fixed
 
 SRC		=	main.cpp \
 			Fixed.cpp
@@ -31,7 +31,7 @@ OBJ		=	${SRC:.c=.o}
 all			: $(NAME)
 
 $(NAME) : $(OBJ)
-	$(CC) $(DEBUG) $(CFLAGS) $(CPP98) $(OBJ) -o $(NAME)
+	$(CC) $(CFLAGS) $(CPP98) $(OBJ) -o $(NAME)
 
 clean		:
 	$(RM) *.o
