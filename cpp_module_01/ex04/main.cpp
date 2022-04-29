@@ -28,15 +28,15 @@ int main(int argc, char* argv[])
 	std::ifstream fin(file_name, std::ios_base::in);
 	if (!fin.is_open())
 	{
-		std::cout << "[Err] fail open" << std::endl;
-		return (1);
+		std::cout << "[Err] open readfile " << std::endl;
+		return (-1);
 	}
 	std::string replace_name = file_name.append(".replace");
 	std::ofstream fout(replace_name, std::ios_base::out);
 	if (!fout.is_open())
 	{
-		std::cout << "[Err] fail create" << std::endl;
-		return (1);
+		std::cout << "[Err] open writefile" << std::endl;
+		return (-1);
 	}
 	while (getline(fin, line))
 	{

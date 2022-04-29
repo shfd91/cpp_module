@@ -4,8 +4,8 @@
 
 class HumanB
 {
-	std::string _name;
-	Weapon *_weapon;
+	std::string name;
+	Weapon *weapon;
 	public:
 		HumanB(std::string name);
 		void setWeapon(Weapon &weapon);
