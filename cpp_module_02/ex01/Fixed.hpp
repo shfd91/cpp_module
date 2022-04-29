@@ -12,9 +12,9 @@ class Fixed
 	public:
 		Fixed();
 		Fixed(const Fixed &obj);
-		Fixed(const int value); // int형을 받아 변환하는 생성자
-		Fixed(const float value); // 실수(부동 소수점)을 받아 고정 소수점으로 변환 생성자
-		~Fixed(); // 소멸자
+		Fixed(const int value); // int형을 받아 고정 소수점 값으로 변환하는 생성자
+		Fixed(const float value); // float형(부동 소수점)을 받아 고정 소수점으로 변환 생성자
+		~Fixed();
 		Fixed &operator=(Fixed const &obj);
 		int getRawBits(void) const;
 		void setRawBits(int const raw);

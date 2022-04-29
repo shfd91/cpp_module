@@ -14,13 +14,13 @@ Fixed::Fixed(const Fixed &obj)
 	*this = obj;
 }
 
-Fixed::Fixed(const int value) // fixed(8)로 변환하는 생성자
+Fixed::Fixed(const int value) // int형을 고정소수점으로 변환하는 생성자
 {
 	std::cout << "Int constructor called" << std::endl;
 	_value = value << _bits;
 }
 
-Fixed::Fixed(const float value) // 고정 소수점으로 변환 생성자
+Fixed::Fixed(const float value) // float을 고정 소수점으로 변환 생성자
 {
 	std::cout << "Float constructor called" << std::endl;
 	_value = (roundf(value * (1 << _bits)));

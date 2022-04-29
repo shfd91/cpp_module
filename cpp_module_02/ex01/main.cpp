@@ -2,12 +2,12 @@
 
 int main(void)
 {
-	Fixed 	a; // 기본 생성자
-	Fixed	const b(10); // 정수형 생성자
-	Fixed	const c(42.42f); // 실수형 생성자
-	Fixed 	const d(b); // 복사 생성자
+	Fixed 	a;
+	Fixed	const b(10);
+	Fixed	const c(42.42f);
+	Fixed 	const d(b);
 
-	a = Fixed(1234.4321f); //할당 연산자 오버로딩
+	a = Fixed(1234.4321f);
 
 	std::cout << "a is " << a << std::endl;
 	std::cout << "b is " << b << std::endl;
