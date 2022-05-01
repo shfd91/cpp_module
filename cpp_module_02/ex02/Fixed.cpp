@@ -78,14 +78,14 @@ bool	Fixed::operator!=(Fixed const &obj)
 Fixed	Fixed::operator+(Fixed const &obj)
 {
 	Fixed f(this->toFloat());
-	f._value += obj.toFloat();
+	f._value += obj._value;
 	return (f);
 }
 
 Fixed	Fixed::operator-(Fixed const &obj)
 {
 	Fixed f(this->toFloat());
-	f._value -= obj.toFloat();
+	f._value -= obj._value;
 	return (f);
 
 }
@@ -120,7 +120,6 @@ Fixed &	Fixed::operator++(void)
 Fixed	Fixed::operator--(int)
 {
 	Fixed f(*this);
-
 	this->_value--;
 	return (f);
 }
