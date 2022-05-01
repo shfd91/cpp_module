@@ -6,7 +6,7 @@
 class Fixed
 {
 	int _value;
-	static int const _bits = 8;
+	static const int _bits = 8;
 	public:
 		Fixed();
 		Fixed(const Fixed &obj);

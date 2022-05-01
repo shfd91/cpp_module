@@ -6,11 +6,11 @@
 #    By: sanghole <sanghole@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 16:55:00 by sanghole          #+#    #+#              #
-#    Updated: 2022/04/29 17:59:37 by sanghole         ###   ########.fr        #
+#    Updated: 2022/05/01 21:14:55 by sanghole         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC		=	clang++
+CC		=	c++
 CFLAGS	=	-Wall -Wextra -Werror
 CPP98	=	-std=c++98
 DEBUG	=	-g
@@ -18,7 +18,7 @@ AR		=	ar rcs
 RM		=	rm -f
 ASAN	=	-g3 -fsanitize=address
 
-NAME	=	Fixed
+NAME	=	a.out
 
 SRC		=	main.cpp \
 			Fixed.cpp

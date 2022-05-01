@@ -1,6 +1,6 @@
 #include "Fixed.hpp"
 
-int const Fixed::_bits = 8;
+const int Fixed::_bits = 8;
 
 Fixed::Fixed()
 {
@@ -78,14 +78,14 @@ bool	Fixed::operator!=(Fixed const &obj)
 Fixed	Fixed::operator+(Fixed const &obj)
 {
 	Fixed f(this->toFloat());
-	f._value += obj._value;
+	f._value += obj.toFloat();
 	return (f);
 }
 
 Fixed	Fixed::operator-(Fixed const &obj)
 {
 	Fixed f(this->toFloat());
-	f._value -= obj._value;
+	f._value -= obj.toFloat();
 	return (f);
 
 }
@@ -126,7 +126,7 @@ Fixed	Fixed::operator--(int)
 
 Fixed &	Fixed::operator--(void)
 {
-	this->_value++;
+	this->_value--;
 	return (*this);
 }
 

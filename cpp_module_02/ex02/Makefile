@@ -6,7 +6,7 @@
 #    By: sanghole <sanghole@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 16:55:00 by sanghole          #+#    #+#              #
-#    Updated: 2022/05/01 18:00:27 by sanghole         ###   ########.fr        #
+#    Updated: 2022/05/01 21:15:05 by sanghole         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ AR		=	ar rcs
 RM		=	rm -f
 ASAN	=	-g3 -fsanitize=address
 
-NAME	=	Fixed
+NAME	=	a.out
 
 SRC		=	main.cpp \
 			Fixed.cpp
