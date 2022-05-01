@@ -7,6 +7,7 @@
 
 int main()
 {
+	// Animal animal;
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
 
@@ -30,7 +31,7 @@ int main()
 	std::cout << std::endl;
 
 
-	std::cout << "=========================" << std::endl;
+	std::cout << "========== CAT ===========" << std::endl;
 	Cat basic;
 	basic.getBrain()->setIdeas("aaa", 0);
 	basic.getBrain()->setIdeas("bbb", 1);
@@ -39,29 +40,41 @@ int main()
 	basic.getBrain()->setIdeas("eee", 4);
 	basic.getBrain()->setIdeas("fff", 5);
 	Cat copy = basic;
-	Cat copy2;
-	copy2 = basic;
 
-	std::cout << "[basic.brain addr : " << basic.getBrain() << "]" << std::endl;
 	std::cout << "========= basic ==========" << std::endl;
+	std::cout << "[basic.brain addr : " << basic.getBrain() << "]" << std::endl;
 	for (int i = 0; i < 6; i++)
 		std::cout << "[" << i << "] " << basic.getBrain()->getIdeas(i) << std::endl;
 	std::cout << "==========================" << std::endl << std::endl;
 
-	std::cout << "====== [deep copy(copy constructor)] =======" << std::endl;
+	std::cout << "====== [deep copy] =======" << std::endl;
 	std::cout << "[copy.brain addr : " << copy.getBrain() << "]" << std::endl;
-	std::cout << "========== copy ==========" << std::endl;
+	for (int i = 0; i < 6; i++)
+		std::cout << "[" << i << "] " << copy.getBrain()->getIdeas(i) << std::endl;
+	std::cout << "==========================" << std::endl << std::endl;
+	std::cout << std::endl;
+	std::cout << "========== DOG ===========" << std::endl;
+	Dog basic2;
+	basic2.getBrain()->setIdeas("aaa", 0);
+	basic2.getBrain()->setIdeas("bbb", 1);
+	basic2.getBrain()->setIdeas("ccc", 2);
+	basic2.getBrain()->setIdeas("ddd", 3);
+	basic2.getBrain()->setIdeas("eee", 4);
+	basic2.getBrain()->setIdeas("fff", 5);
+	Dog copy2 = basic2;
+
+	std::cout << "========= basic ==========" << std::endl;
+	std::cout << "[basic.brain addr : " << basic2.getBrain() << "]" << std::endl;
+	for (int i = 0; i < 6; i++)
+		std::cout << "[" << i << "] " << basic2.getBrain()->getIdeas(i) << std::endl;
+	std::cout << "==========================" << std::endl << std::endl;
+
+	std::cout << "====== [deep copy] =======" << std::endl;
+	std::cout << "[copy.brain addr : " << copy.getBrain() << "]" << std::endl;
 	for (int i = 0; i < 6; i++)
 		std::cout << "[" << i << "] " << copy.getBrain()->getIdeas(i) << std::endl;
 	std::cout << "==========================" << std::endl << std::endl;
 
-	std::cout << "====== [deep copy(assignment operator)] =======" << std::endl;
-	basic.getBrain()->setIdeas("zzz", 0);
 
-	std::cout << copy2.getType() << std::endl;
-	std::cout << "[copy.brain addr : " << copy2.getBrain() << "]" << std::endl;
-	std::cout << "========== copy ==========" << std::endl;
-	for (int i = 0; i < 6; i++)
-		std::cout << "[" << i << "] " << copy2.getBrain()->getIdeas(i) << std::endl;
-	std::cout << "==========================" << std::endl;
+	// system("leaks a.out");
 }

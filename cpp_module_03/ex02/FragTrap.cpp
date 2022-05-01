@@ -2,17 +2,16 @@
 
 FragTrap::FragTrap() : ClapTrap()
 {
-	this->_name = "dafault";
+	_name = "dafault";
 	_hp = 100;
 	_ep = 100;
 	_damage = 30;
-	std::cout << "FragTrap <" << _name << "> default constructor is called!" << std::endl;
+	std::cout << "FragTrap " << _name << " default constructor is called!" << std::endl;
 }
 
-FragTrap::FragTrap(FragTrap const &scavTrap) : ClapTrap(scavTrap)
+FragTrap::FragTrap(FragTrap const &copy) : ClapTrap(copy)
 {
-	std::cout << "FragTrap <" << _name << "> copy constructor is called!" << std::endl;
-	*this = scavTrap;
+	*this = copy;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
@@ -20,27 +19,29 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 	_hp = 100;
 	_ep = 100;
 	_damage = 30;
-	std::cout << "FragTrap <" << _name << "> string constructor is called!" << std::endl;
+	std::cout << "FragTrap " << _name << " string constructor is called!" << std::endl;
 }
 
 FragTrap::~FragTrap()
 {
-	std::cout << "FragTrap <" << _name << "> destructor is called!" << std::endl;
+	std::cout << "FragTrap " << _name << " destructor is called!" << std::endl;
 }
 
-FragTrap& FragTrap::operator=(FragTrap const &scavtrap)
+FragTrap& FragTrap::operator=(FragTrap const &copy)
 {
-	ClapTrap::operator=(scavtrap);
-	std::cout << "FragTrap <" << _name << "> assignment operators is called!" << std::endl;
+	ClapTrap::operator=(copy);
 	return (*this);
 }
 
 void FragTrap::attack(std::string const &target)
 {
-	std::cout << "FragTrap <" << _name << "> attack <" << target << ">, causing <" << _damage << "> points of damage!" << std::endl;
+	if (immobilityStatus(*this))
+		return ;
+	this->_ep--;
+	std::cout << "FragTrap " << _name << " attack " << target << ", causing " << _damage << " points of damage!" << " [Remaining EP : " << this->_ep << "]" << std::endl;
 }
 
 void FragTrap::highFivesGuys()
 {
-	std::cout << "FragTrap <" << _name << "> Ask for a positive high-five!" << std::endl;
+	std::cout << "FragTrap " << _name << " Ask for a positive high-five!" << std::endl;
 }

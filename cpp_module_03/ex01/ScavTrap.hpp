@@ -5,6 +5,8 @@
 
 class ScavTrap : public ClapTrap
 {
+	private:
+		int guardMode;
 	public:
 		ScavTrap();
 		ScavTrap(ScavTrap const &scavTrap);
@@ -13,6 +15,7 @@ class ScavTrap : public ClapTrap
 		ScavTrap& operator=(ScavTrap const &scavTrap);
 		void	attack(std::string const &target);
 		void	guardGate();
+		void	printStatus() const;
 };
 
 #endif

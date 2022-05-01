@@ -2,22 +2,27 @@
 
 int main(void)
 {
-	// ClapTrap	a("a");
-	ClapTrap	a;
-	ClapTrap	b("b");
-	ClapTrap	c("c");
+	ClapTrap	a("A");
+	ClapTrap	b("B");
 
-	a.attack("b");
+	a.attack("B");
 	b.takeDamage(a.getDamage());
 
-	b.attack("a");
+	b.attack("A");
 	a.takeDamage(b.getDamage());
 
-	c.attack("b");
-	b.takeDamage(c.getDamage());
+	b.attack("A");
+	a.takeDamage(b.getDamage());
 
-	a.beRepaired(25);
-	b.beRepaired(25);
+	b.attack("A");
+	a.takeDamage(b.getDamage());
+
+	a.beRepaired(10);
+	b.beRepaired(20);
+	a.printStatus();
+	ClapTrap	c(a);
+	c.printStatus();
+
 	return (0);
 }
 
