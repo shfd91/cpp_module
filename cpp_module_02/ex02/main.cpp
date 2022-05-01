@@ -14,4 +14,23 @@ int main(void)
 	std::cout << b << std::endl;
 
 	std::cout << Fixed::max(a, b) << std::endl;
+	std::cout << Fixed::min(a, b) << std::endl;
+	std::cout << std::endl;
+
+	std::cout << "a : " << a << std::endl;
+	std::cout << "b : " << b << std::endl;
+	std::cout << "a > b : " << (a > b) << std::endl;
+	std::cout << "a < b : " << (a < b) << std::endl;
+	std::cout << "a >= b : " << (a >= b) << std::endl;
+	std::cout << "a <= b : " << (a <= b) << std::endl;
+	std::cout << "a == b : " << (a == b) << std::endl;
+	std::cout << "a != b : " << (a != b) << std::endl;
+	std::cout << std::endl;
+
+	std::cout << "Fixed(5.05f) + Fixed(10) : " << Fixed(5.05f) + Fixed(10) << std::endl;
+	std::cout << "Fixed(5.05f) - Fixed(10) : " << Fixed(5.05f) - Fixed(10) << std::endl;
+	std::cout << "Fixed(5.05f) * Fixed(10) : " << Fixed(5.05f) * Fixed(10) << std::endl;
+	std::cout << "Fixed(5.05f) / Fixed(10) : " << Fixed(5.05f) / Fixed(10) << std::endl;
+
+	return 0;
 }

@@ -6,11 +6,11 @@
 #    By: sanghole <sanghole@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 16:55:00 by sanghole          #+#    #+#              #
-#    Updated: 2022/04/29 18:00:27 by sanghole         ###   ########.fr        #
+#    Updated: 2022/05/01 18:00:27 by sanghole         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC		=	clang++
+CC		=	c++
 CFLAGS	=	-Wall -Wextra -Werror
 CPP98	=	-std=c++98
 DEBUG	=	-g
