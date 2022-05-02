@@ -6,11 +6,11 @@
 #    By: sanghole <sanghole@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 16:55:00 by sanghole          #+#    #+#              #
-#    Updated: 2022/04/24 05:29:02 by sanghole         ###   ########.fr        #
+#    Updated: 2022/05/02 10:34:32 by sanghole         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC		=	clang++
+CC		=	c++
 CFLAGS	=	-Wall -Wextra -Werror
 CPP98	=	-std=c++98
 DEBUG	=	-g
@@ -18,7 +18,7 @@ AR		=	ar rcs
 RM		=	rm -f
 ASAN	=	-g3 -fsanitize=address
 
-NAME	=	main
+NAME	=	a.out
 
 SRC		=	main.cpp \
 			Bureaucrat.cpp \
@@ -37,7 +37,7 @@ OBJ		=	${SRC:.c=.o}
 all			: $(NAME)
 
 $(NAME) : $(OBJ)
-	$(CC) $(DEBUG) $(CFLAGS) $(CPP98) $(OBJ) -o $(NAME)
+	$(CC) $(CFLAGS) $(CPP98) $(OBJ) -o $(NAME)
 
 clean		:
 	$(RM) *.o

@@ -92,7 +92,5 @@ int main()
 		std::cout << "[" << i << "] " << copy4.getBrain()->getIdeas(i) << std::endl;
 	std::cout << "==========================" << std::endl << std::endl;
 	std::cout << std::endl;
-
-
-	// system("leaks a.out");
+	system("leaks a.out");
 }
