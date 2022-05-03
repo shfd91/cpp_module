@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: slee2 <slee2@student.42seoul.kr>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/19 21:30:53 by slee2             #+#    #+#             */
+/*   Updated: 2021/11/23 16:13:14 by slee2            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -101,12 +113,12 @@ int main(int argc, char **argv)
 {
 	if (argc != 2)
 		return 0;
-
+		
 	std::string str(argv[1]);
 
 	bool parse = false;
 	bool point_zero = false;
-
+	
 	std::string signal;
 	std::string special[] = {"-inff", "-inf", "+inff", "+inf", "nanf", "nan"};
 	int	i = std::find(special, special + 6, str) - special;
@@ -114,7 +126,7 @@ int main(int argc, char **argv)
 		signal = "none";
 	else
 		signal = special[i];
-
+		
 	if (argv[1][strlen(argv[1]) - 1] == 'f') {
 		argv[1][strlen(argv[1]) -1] = 0;
 		str = str.substr(0, str.length() - 1);
@@ -126,33 +138,11 @@ int main(int argc, char **argv)
 
 	std::stringstream sslongDouble(str);
 	sslongDouble >> l;
-
+	
 	c_char(l, parse);
 	c_int(l, parse);
 	c_float(l, parse, point_zero, signal);
 	c_double(l, parse, point_zero, signal);
 
-	return 0;
-}
-
-
-class Awesome
-{
-	public:
-		Awesome( void ) : _n( 42 ) { return; }
-		int get( void ) const { return this->_n; }
-	private:
-		int _n;
-};
-std::ostream & operator<<( std::ostream & o, Awesome const & rhs ) { o << rhs.get(); return o; }
-template< typename T >
-void print( T const & x ) { std::cout << x << std::endl; return; }
-
-int main()
-{
-	int tab[] = { 0, 1, 2, 3, 4 }; // <--- I never understood why you can't write int[] tab. Wouldn't that make more sense?
-	Awesome tab2[5];
-	iter( tab, 5, print );
-	iter( tab2, 5, print );
 	return 0;
 }
