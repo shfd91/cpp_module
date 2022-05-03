@@ -1,14 +1,35 @@
 #include "Intern.hpp"
 
+Intern::Intern()
+{
+
+}
+
+Intern::Intern(const Intern &)
+{
+
+}
+
+Intern &Intern::operator=(const Intern &)
+{
+	return (*this);
+}
+
+Intern::~Intern()
+{
+
+}
+
 Form *Intern::makeForm(std::string form, std::string target)
 {
 	try
 	{
-		const std::string formName[] = {	"ShrubberyCreationForm",
-											"RobotomyRequestForm",
-											"PresidentialPardonForm" };
-		int i = std::find(formName, formName + 3, form) - formName;
-
+		const std::string formName[] = {	"shrubbery creation",
+											"robotomy request",
+											"presidential pardon" };
+		int i = 0;
+		while (i < 3 && form != formName[i])
+			i++;
 		switch (i)
 		{
 			case 0:
@@ -23,18 +44,18 @@ Form *Intern::makeForm(std::string form, std::string target)
 				std::cout << "Intern creates " << formName[i] << std::endl;
 				return new PresidentialPardonForm(target);
 				break;
-			case 3:
+			default:
 				throw (NotFoundException());
 		}
 	}
 	catch (std::exception &e)
 	{
-		std::cout << "The specified form could not be found. Reason : " << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 	return (NULL);
 }
 
 const char* Intern::NotFoundException::what(void) const throw()
 {
-	return ("NotFound");
+	return ("No matching form found");
 }

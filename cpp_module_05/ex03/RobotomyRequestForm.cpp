@@ -1,4 +1,6 @@
 #include "RobotomyRequestForm.hpp"
+#include <cstdlib>
+#include <ctime>
 
 RobotomyRequestForm::RobotomyRequestForm() : Form()
 {
@@ -28,15 +30,17 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
-	(*const_cast<Bureaucrat *>(&executor)).signForm(*(const_cast<RobotomyRequestForm *>(this)));
-	if (executor.getGrade() > 45)
+	if (!this->getSign())
+		throw (NoSignException());
+	if (executor.getGrade() > this->getExeGrade())
 		throw (GradeTooLowException());
 
 	std::cout << "[50% chance of success.]" << std::endl;
 	std::cout << "Drrrrrrr...." << std::endl;
 	std::cout << "Drrrrrrr...." << std::endl;
-	if (std::rand() % 2 == 0)
-		std::cout << "[Success] " << this->getName() << " is Robot" << std::endl;
+	srand((unsigned)time(NULL));
+	if ((rand() % 2) == 0)
+		std::cout << "[Success] " << this->getTarget() << " is Robot" << std::endl;
 	else
-		std::cout << "[Fail] " << this->getName() << std::endl;
+		std::cout << "[Fail] " << this->getTarget() << " is Human" << std::endl;
 }

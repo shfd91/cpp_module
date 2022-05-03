@@ -16,7 +16,7 @@ class Form
 		const int _exe_grade;
 	public:
 		Form();
-		Form(std::string name, std::string _target, int sign_grade, int exe_grade);
+		Form(std::string name, std::string target, int sign_grade, int exe_grade);
 		Form(const Form &copy);
 		Form &operator=(const Form &copy);
 		virtual ~Form();
@@ -26,7 +26,7 @@ class Form
 		int getSignGrade() const;
 		int getExeGrade() const;
 		std::string getTarget() const;
-
+		void gradeException(Form &obj) const;
 		void beSigned(const Bureaucrat &b);
 		virtual void execute(Bureaucrat const &executor) const = 0;
 

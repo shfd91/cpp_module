@@ -8,20 +8,29 @@
 int main()
 {
 	Bureaucrat a("a", 1);
-	Intern intern;
 	Form *form;
+	Intern intern;
 
-	form = intern.makeForm("ShrubberyCreationForm", "shru");
-	a.executeForm(*form);
+	form = intern.makeForm("empty", "empty");
 	std::cout << std::endl;
 
-	form = intern.makeForm("RobotomyRequestForm", "robot");
+	form = intern.makeForm("robotomy request", "Bender");
+	a.signForm(*form);
 	a.executeForm(*form);
+	delete form;
 	std::cout << std::endl;
 
-	form = intern.makeForm("PresidentialPardonForm", "president");
+	form = intern.makeForm("shrubbery creation", "shru");
+	a.signForm(*form);
 	a.executeForm(*form);
+	delete form;
+	std::cout << std::endl;
 
-
+	form = intern.makeForm("presidential pardon", "president");
+	a.signForm(*form);
+	a.executeForm(*form);
+	delete form;
+	std::cout << std::endl;
+	system("leaks a.out");
 	return (0);
 }

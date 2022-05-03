@@ -1,4 +1,5 @@
 #include "ShrubberyCreationForm.hpp"
+#include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm() : Form()
 {
@@ -28,8 +29,9 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
-	(*const_cast<Bureaucrat *>(&executor)).signForm(*(const_cast<ShrubberyCreationForm *>(this)));
-	if (executor.getGrade() > 137)
+	if (!this->getSign())
+		throw (NoSignException());
+	if (executor.getGrade() > this->getExeGrade())
 		throw (GradeTooLowException());
 
 	std::string fileName = this->getTarget() + "_shrubbery";
@@ -44,9 +46,14 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 							"_- -   | | _- _ \n"
 							"  _ -  | |   -_ \n"
 							"      // \\\\ \n";
-	if (!file.good())
-		throw std::ofstream::failure("fail open " + fileName);
+	if (!file.is_open())
+		throw (fileOpenException());
 	else
-		std::cout << "create < " << fileName << " > success" << std::endl;
+		std::cout << "create " << fileName << " success" << std::endl;
 	file << shrubbery;
+}
+
+const char *ShrubberyCreationForm::fileOpenException::what(void) const throw()
+{
+	return ("file open Exception");
 }

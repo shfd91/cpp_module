@@ -9,13 +9,10 @@
 class Intern
 {
 	public:
-		Intern() {}
-		Intern(const Intern &) {}
-		Intern &operator=(const Intern &)
-		{
-			return *this;
-		}
-		~Intern() {}
+		Intern();
+		Intern(const Intern &);
+		Intern &operator=(const Intern &);
+		~Intern();
 		Form *makeForm(std::string form, std::string target);
 		class NotFoundException: public std::exception
 		{
