@@ -1,22 +1,12 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Base.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: slee2 <slee2@student.42seoul.kr>           +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/23 14:56:41 by slee2             #+#    #+#             */
-/*   Updated: 2021/11/23 15:27:56 by slee2            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Base.hpp"
+#include <iostream>
 
 Base*	generate(void) {
 	int num;
 	srand(time(0));
 	num = rand() % 3;
-	switch(num) {
+	switch(num)
+	{
 		case 0:
 			std::cout << "return A class" << std::endl;
 			return (new A());
@@ -31,35 +21,48 @@ Base*	generate(void) {
 }
 
 void	identify(Base* p) {
-	if (dynamic_cast<A*>(p))
+	if (dynamic_cast<A*>(p) != nullptr)
 		std::cout << "A" << std::endl;
-	else if (dynamic_cast<B*>(p))
+	else if (dynamic_cast<B*>(p) != nullptr)
 		std::cout << "B" << std::endl;
-	else if (dynamic_cast<C*>(p))
+	else if (dynamic_cast<C*>(p) != nullptr)
 		std::cout << "C" << std::endl;
 }
 
+// 이 함수 내에서 포인터 사용 금지
 void	identify(Base& p) {
-	try {
-		A &a = dynamic_cast<A&>(p);
-		(void)a;
+	if (dynamic_cast<A*>(&p))
 		std::cout << "A" << std::endl;
-		return ;
-	} catch(std::exception&) {
-	}
-	try {
-		B &b = dynamic_cast<B&>(p);
-		(void)b;
+	if (dynamic_cast<B*>(&p))
 		std::cout << "B" << std::endl;
-		return ;
-	} catch(std::exception&) {
-	}
-	try {
-		C &c = dynamic_cast<C&>(p);
-		(void)c;
+	if (dynamic_cast<C*>(&p))
 		std::cout << "C" << std::endl;
-		return ;
-	} catch(std::exception&) {
-	}
+
 }
+
+// void	identify(Base& p) {
+// 	try
+//	{
+// 		A &a = dynamic_cast<A&>(p);
+// 		(void)a;
+// 		std::cout << "A" << std::endl;
+// 		return ;
+// 	} catch(std::exception& e)
+//	{
+// 	}
+// 	try {
+// 		B &b = dynamic_cast<B&>(p);
+// 		(void)b;
+// 		std::cout << "B" << std::endl;
+// 		return ;
+// 	} catch(std::exception&) {
+// 	}
+// 	try {
+// 		C &c = dynamic_cast<C&>(p);
+// 		(void)c;
+// 		std::cout << "C" << std::endl;
+// 		return ;
+// 	} catch(std::exception&) {
+// 	}
+// }
 

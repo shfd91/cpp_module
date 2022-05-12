@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: sanghole <sanghole@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/09/27 16:55:00 by sanghole          #+#    #+#              #
-#    Updated: 2022/05/02 10:39:10 by sanghole         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 CC		=	c++
 CFLAGS	=	-Wall -Wextra -Werror
 CPP98	=	-std=c++98
@@ -18,9 +6,10 @@ AR		=	ar rcs
 RM		=	rm -f
 ASAN	=	-g3 -fsanitize=address
 
-NAME	=	a.out
+NAME	=	convert
 
-SRC		=	main.cpp
+SRC		=	main.cpp \
+			Convert.cpp
 
 OBJ		=	${SRC:.c=.o}
 
