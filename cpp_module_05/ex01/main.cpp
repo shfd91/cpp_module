@@ -4,7 +4,6 @@
 int main()
 {
 	Bureaucrat b("b", 30);
-	std::cout << b << std::endl;
 	try
 	{
 		Form formA("formA", 151, 150);

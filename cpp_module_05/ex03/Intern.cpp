@@ -20,6 +20,22 @@ Intern::~Intern()
 
 }
 
+Form *Intern::newPrsident(std::string target)
+{
+	return (new PresidentialPardonForm(target));
+}
+
+Form *Intern::newRobotomy(std::string target)
+{
+	return (new RobotomyRequestForm(target));
+}
+
+Form *Intern::newShrubbery(std::string target)
+{
+	return (new ShrubberyCreationForm(target));
+}
+
+
 Form *Intern::makeForm(std::string form, std::string target)
 {
 	try
@@ -27,6 +43,12 @@ Form *Intern::makeForm(std::string form, std::string target)
 		const std::string formName[] = {	"shrubbery creation",
 											"robotomy request",
 											"presidential pardon" };
+		Form *(Intern::*funcs[])(std::string target) =
+		{
+			&Intern::newShrubbery,
+			&Intern::newRobotomy,
+			&Intern::newPrsident,
+		};
 		int i = 0;
 		while (i < 3 && form != formName[i])
 			i++;
@@ -34,15 +56,15 @@ Form *Intern::makeForm(std::string form, std::string target)
 		{
 			case 0:
 				std::cout << "Intern creates " << formName[i] << std::endl;
-				return new ShrubberyCreationForm(target);
+				return ((this->*funcs[i])(target));
 				break;
 			case 1:
 				std::cout << "Intern creates " << formName[i] << std::endl;
-				return new RobotomyRequestForm(target);
+				return ((this->*funcs[i])(target));
 				break;
 			case 2:
 				std::cout << "Intern creates " << formName[i] << std::endl;
-				return new PresidentialPardonForm(target);
+				return ((this->*funcs[i])(target));
 				break;
 			default:
 				throw (NotFoundException());

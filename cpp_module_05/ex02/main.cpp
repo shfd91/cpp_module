@@ -6,12 +6,22 @@
 
 int main()
 {
-	ShrubberyCreationForm form1("form 1");
-	RobotomyRequestForm form2("form 2");
-	PresidentialPardonForm form3("form 3");
+	ShrubberyCreationForm form1("shru");
+	RobotomyRequestForm form2("robo");
+	PresidentialPardonForm form3("pres");
 	Bureaucrat a("a", 1);
 	Bureaucrat b("b", 50);
 	Bureaucrat c("c", 150);
+
+	a.executeForm(form1);
+	b.executeForm(form1);
+	c.executeForm(form1);
+	std::cout << std::endl;
+
+	a.signForm(form1);
+	a.signForm(form2);
+	a.signForm(form3);
+	std::cout << std::endl;
 
 	a.executeForm(form1);
 	b.executeForm(form1);
@@ -26,9 +36,6 @@ int main()
 	a.executeForm(form3);
 	b.executeForm(form3);
 	c.executeForm(form3);
-
-	// a.executeForm(form1);
-	// b.executeForm(form1); // excuteForm에서 execute를 실행시키는 것. execute에 서명하는 것(signForm)도 포함되어있음
 
 	return (0);
 }
