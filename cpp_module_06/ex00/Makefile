@@ -2,7 +2,7 @@ CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror
 CPP98		=	-std=c++98
 RM			=	rm -f
-NAME		=	a.out
+NAME		=	convert
 
 SRC			=	main.cpp \
 				Convert.cpp
