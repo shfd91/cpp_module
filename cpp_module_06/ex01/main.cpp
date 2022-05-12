@@ -3,7 +3,7 @@
 
 int main()
 {
-	Data *a = new Data;
+	/* Data *a = new Data;
 	a->data = "abc";
 	std::cout << "[Data] String : " << a->data << ", Addr : " << a << std::endl;
 
@@ -19,5 +19,10 @@ int main()
 	std::cout << "[Data] String : " << a->data << ", Addr : " << a << std::endl;
 
 	delete a;
-	return 0;
+	return 0; */
+
+	Data *a = new Data;
+	a->data = "abc";
+	uintptr_t uint = 10;
+	std::cout << uint << std::end;
 }

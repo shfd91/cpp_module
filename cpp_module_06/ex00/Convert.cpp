@@ -104,14 +104,14 @@ void Convert::exeConvert()
 int Convert::typeCheck()
 {
 	int length = _input.length();
-	if (_input[0] == '-')
-		_minus = true;
 	if ((length == 1) && ((_input[0] > 31 && _input[0] < 48) || (_input[0] > 57 && _input[0] < 127)))
 	{
 		_value = static_cast<int>(_input[0]);
 		return (0);
 	}
 	_value = std::strtod(_input.c_str(), &_ptr);
+	if (_input[0] == '-')
+		_minus = true;
 	int temp = _input.find('.');
 	if (temp != -1)
 	{
