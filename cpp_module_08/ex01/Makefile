@@ -4,7 +4,8 @@ CPP98		=	-std=c++98
 RM			=	rm -f
 NAME		=	a.out
 
-SRC			=	main.cpp
+SRC			=	main.cpp \
+				span.cpp
 
 OBJ			=	${SRC:.c=.o}
 
