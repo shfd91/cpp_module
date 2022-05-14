@@ -14,17 +14,17 @@ Bureaucrat::Bureaucrat() : _name("default"), _grade(0)
 // }
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _grade(grade)
 {
-	try
-	{
+	// try
+	// {
 		if (_grade > 150)
 			throw (GradeTooLowException());
 		else if (_grade < 1)
 			throw (GradeTooHighException());
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+	// }
+	// catch (std::exception &e)
+	// {
+	// 	std::cout << e.what() << std::endl;
+	// }
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy) : _name(copy.getName()), _grade(copy.getGrade())
