@@ -14,6 +14,9 @@ class Intern
 		Intern &operator=(const Intern &);
 		~Intern();
 		Form *makeForm(std::string form, std::string target);
+		Form *newPrsident(std::string target);
+		Form *newRobotomy(std::string target);
+		Form *newShrubbery(std::string target);
 		class NotFoundException: public std::exception
 		{
 			public:

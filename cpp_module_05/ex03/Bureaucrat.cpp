@@ -58,9 +58,9 @@ void Bureaucrat::decrease(int num)
 void Bureaucrat::gradeException(Bureaucrat &obj)
 {
 	if (obj._grade > 150)
-		throw (GradeTooHighException());
-	if (obj._grade < 1)
 		throw (GradeTooLowException());
+	if (obj._grade < 1)
+		throw (GradeTooHighException());
 }
 
 void Bureaucrat::signForm(Form &form)
@@ -72,7 +72,7 @@ void Bureaucrat::signForm(Form &form)
 	}
 	catch (const std::exception &e)
 	{
-		std::cout << this->getName() << " couldn't sign " << form.getTarget() << " because " << e.what() << std::endl;
+		std::cout << this->getName() << " couldn't sign " << form.getTarget() << " because " << e.what() << "." << std::endl;
 	}
 }
 
@@ -85,7 +85,7 @@ void Bureaucrat::executeForm(Form const &form)
 	}
 	catch(const std::exception& e)
 	{
-		std::cout << this->getName() << " cannot execute " << form.getTarget() << " because " << e.what() << std::endl;
+		std::cout << this->getName() << " cannot execute " << form.getTarget() << " because " << e.what() << "." << std::endl;
 	}
 }
 
@@ -101,7 +101,7 @@ const char *Bureaucrat::GradeTooLowException::what(void) const throw()
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &b)
 {
-	out << b.getName() << ", bureaucrat grade " << b.getGrade();
+	out << b.getName() << ", bureaucrat grade " << b.getGrade() << ".";
 	return (out);
 }
 

@@ -6,7 +6,7 @@
 #    By: sanghole <sanghole@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 16:55:00 by sanghole          #+#    #+#              #
-#    Updated: 2022/05/02 10:38:48 by sanghole         ###   ########.fr        #
+#    Updated: 2022/05/04 01:46:59 by sanghole         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ clean		:
 
 fclean		: clean
 	rm -rf $(NAME)
+	rm -rf *_shrubbery
 
 re			: fclean all
 

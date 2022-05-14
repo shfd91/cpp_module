@@ -1,25 +1,18 @@
-CC		=	c++
-CFLAGS	=	-Wall -Wextra -Werror
-CPP98	=	-std=c++98
-DEBUG	=	-g
-AR		=	ar rcs
-RM		=	rm -f
-ASAN	=	-g3 -fsanitize=address
+CXX			=	c++
+CXXFLAGS	=	-Wall -Wextra -Werror
+CPP98		=	-std=c++98
+RM			=	rm -f
+NAME		=	convert
 
-NAME	=	convert
+SRC			=	main.cpp \
+				Convert.cpp
 
-SRC		=	main.cpp \
-			Convert.cpp
-
-OBJ		=	${SRC:.c=.o}
-
-%.o 		: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+OBJ			=	${SRC:.c=.o}
 
 all			: $(NAME)
 
 $(NAME) : $(OBJ)
-	$(CC) $(CFLAGS) $(CPP98) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(CPP98) $(OBJ) -o $(NAME)
 
 clean		:
 	$(RM) *.o

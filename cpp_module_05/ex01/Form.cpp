@@ -7,19 +7,12 @@ Form::Form() : _name("default"), _sign(false) ,_sign_grade(150), _exe_grade(150)
 
 Form::Form(std::string name, int sign_grade, int exe_grade) : _name(name), _sign(false), _sign_grade(sign_grade), _exe_grade(exe_grade)
 {
-	if (_sign_grade > 150 || _exe_grade > 150)
-		throw (GradeTooLowException());
-	else if (_sign_grade < 1 || _exe_grade < 1)
-		throw (GradeTooHighException());
+	gradeException(*this);
 }
 
 Form::Form(const Form &copy) : _name(copy.getName()), _sign(copy.getSign()), _sign_grade(copy.getSignGrade()), _exe_grade(copy.getExeGrade())
 {
-	if (copy.getSignGrade() > 150 || copy.getExeGrade() > 150)
-		throw (GradeTooLowException());
-	else if (copy.getSignGrade() < 1 || copy.getExeGrade() < 1)
-		throw (GradeTooHighException());
-	this->_sign = copy._sign;
+
 }
 
 Form &Form::operator=(const Form &copy)
@@ -28,10 +21,6 @@ Form &Form::operator=(const Form &copy)
 	*(const_cast<int *>(&this->_sign_grade)) = copy.getSignGrade();
 	*(const_cast<int *>(&this->_exe_grade)) = copy.getExeGrade();
 	this->_sign = copy.getSign();
-	if (_sign_grade > 150 || _exe_grade > 150)
-		throw (GradeTooLowException());
-	else if (_sign_grade < 1 || _exe_grade < 1)
-		throw (GradeTooHighException());
 	return (*this);
 }
 
@@ -60,10 +49,18 @@ int Form::getExeGrade() const
 	return (this->_exe_grade);
 }
 
+void Form::gradeException(Form &obj) const
+{
+	if (obj._sign_grade > 150 || obj._exe_grade > 150)
+		throw (GradeTooLowException());
+	else if (obj._sign_grade < 1 || obj._exe_grade < 1)
+		throw (GradeTooHighException());
+}
+
 void Form::beSigned(const Bureaucrat &b)
 {
 	if (b.getGrade() > this->_sign_grade)
-		throw Form::GradeTooLowException();
+		throw (GradeTooLowException());
 	this->_sign = true;
 }
 
@@ -79,6 +76,6 @@ const char *Form::GradeTooLowException::what() const throw()
 
 std::ostream &operator<<(std::ostream &out, const Form &form)
 {
-	out << "< " << form.getName() << " > Form signGrade : < " << form.getSignGrade() << " >, exeGrade : < " << form.getExeGrade() << " >";
+	out << form.getName() << " Form sign : " << form.getSign() << ", signGrade : " << form.getSignGrade() << ", exeGrade : " << form.getExeGrade();
 	return (out);
 }
