@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: slee2 <slee2@student.42seoul.kr>           +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/19 21:30:53 by slee2             #+#    #+#             */
-/*   Updated: 2021/11/24 21:08:27 by slee2            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "span.hpp"
 
 int main()
@@ -22,7 +10,7 @@ int main()
 	sp.addNumber(11);
 	std::cout << sp.shortestSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
-	
+
 	std::cout << "---addNumber test---" << std::endl;
 
 	try
@@ -42,9 +30,9 @@ int main()
 	catch (std::exception &e) {
 		std::cerr << e.what() << std::endl;
 	}
-	
+
 	std::cout << "---short_long exception test---" << std::endl;
-	
+
 	try
 	{
 		Span					sp(0);
@@ -63,7 +51,7 @@ int main()
 	}
 
 	std::cout << "---max test---" << std::endl;
-	
+
 	Span						sp1 = Span(10000);
 
 	for (int i = -5000; i <= 4999; i++)

@@ -61,6 +61,17 @@ int main()
 
 		std::cout << "\nd_numbers_copy2 : ";
 		for (int i = 0; i < 5; i++)
+			std::cout << d_numbers_copy2[i] << " ";
+		std::cout << std::endl;
+
+		d_numbers[1] *= 2;
+		std::cout << "\nd_numbers : ";
+		for (int i = 0; i < 5; i++)
+			std:: cout << d_numbers[i] << " ";
+
+		d_numbers_copy2[4] *=2;
+		std::cout << "\nd_numbers_copy2 : ";
+		for (int i = 0; i < 5; i++)
 			std:: cout << d_numbers_copy2[i] << " ";
 	}
 	catch (std::exception &e)

@@ -5,7 +5,7 @@
 #include <iostream>
 #include <string>
 #include <sstream>
-#include <climits>
+#include <limits>
 
 class Convert
 {
@@ -14,7 +14,7 @@ class Convert
 		double _value;
 		char *_ptr;
 		bool _attachZero;
-		bool _minus;
+		int _sign;
 	public:
 		Convert();
 		Convert(std::string str);
@@ -24,8 +24,8 @@ class Convert
 
 		void toChar(double value);
 		void toInt(double value);
-		void toFloat(double value, bool attachZero, bool minus);
-		void toDouble(double value, bool attachZero, bool minus);
+		void toFloat(double value, bool attachZero, int sign);
+		void toDouble(double value, bool attachZero, int sign);
 		void exeConvert();
 		int typeCheck();
 
