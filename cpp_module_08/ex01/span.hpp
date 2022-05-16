@@ -16,13 +16,19 @@ class Span {
 		Span();
 		Span(unsigned int N);
 		Span(const Span& s);
+		Span& operator=(const Span& s);
 		~Span();
 		void addNumber(int n);
 		int	shortestSpan();
 		int	longestSpan();
 		void addMaxNumber(int n);
-		Span&	operator=(const Span& s);
-		std::vector<int>	getVector() const;
+		std::vector<int> getVector() const;
+		template <typename T>
+		void addRange(T begin, T end)
+		{
+			while (begin != end)
+				_vec.push_back(*begin++);
+		}
 		class DataFullException: public std::exception {
 			public:
 				const char* what() const throw();

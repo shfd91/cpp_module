@@ -1,8 +1,8 @@
 #include "mutantstack.hpp"
 
-#include <list>
 int main()
 {
+
 	MutantStack<int> mstack;
 	mstack.push(5);
 	mstack.push(17);
@@ -24,28 +24,40 @@ int main()
 		++it;
 	}
 	std::stack<int> s(mstack);
-	std::cout << std::endl;
 
-	std::list<int> mlst;
-	mlst.push_back(5);
-	mlst.push_back(17);
-	std::cout << mlst.back() << std::endl;
-	mlst.pop_back();
-	std::cout << mlst.size() << std::endl;
-	mlst.push_back(3);
-	mlst.push_back(5);
-	mlst.push_back(737);
-	//[...]
-	mlst.push_back(0);
-	std::list<int>::iterator it_list = mlst.begin();
-	std::list<int>::iterator ite_list = mlst.end();
-	++it_list;
-	--it_list;
-	while (it_list != ite_list)
+	std::cout << std::endl;
+	for (MutantStack<int>::reverse_iterator rit = mstack.rbegin(); rit != mstack.rend(); ++rit)
 	{
-		std::cout << *it_list << std::endl;
-		++it_list;
+		std::cout << *rit << " ";
 	}
-	std::list<int> l(mlst);
+
+	std::cout << std::endl << std::endl;
+
+	std::list<int> lst;
+	lst.push_back(5);
+	lst.push_back(17);
+	std::cout << lst.back() << std::endl;
+	lst.pop_back();
+	std::cout << lst.size() << std::endl;
+	lst.push_back(3);
+	lst.push_back(5);
+	lst.push_back(737);
+	//[...]
+	lst.push_back(0);
+	std::list<int>::iterator it_lst = lst.begin();
+	std::list<int>::iterator ite_lst = lst.end();
+	++it_lst;
+	--it_lst;
+	while (it_lst != ite_lst)
+	{
+		std::cout << *it_lst << std::endl;
+		++it_lst;
+	}
+	std::list<int> l(lst);
+	std::cout << std::endl;
+	for (std::list<int>::reverse_iterator rit = lst.rbegin(); rit != lst.rend(); ++rit)
+	{
+		std::cout << *rit << " ";
+	}
 	return 0;
 }

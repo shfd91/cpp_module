@@ -61,7 +61,7 @@ void Span::addMaxNumber(int n)
 	if ((this->_vec).capacity() == (this->_vec).size())
 		throw DataFullException();
 	for (int i = this->getVector().size(); i < n; i++)
-		addNumber(i);
+		this->_vec.push_back(i);
 }
 
 const char*	Span::DataFullException::what() const throw() {

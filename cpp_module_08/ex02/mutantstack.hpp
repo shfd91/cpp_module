@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <stack>
+#include <list>
 
 template<typename T>
 class MutantStack: public std::stack<T> {
@@ -17,8 +18,7 @@ class MutantStack: public std::stack<T> {
 		}
 		MutantStack<T>&	operator=(const MutantStack<T>& m)
 		{
-			if (this != m)
-				this->c = m.c;
+			this->c = m.c;
 			return *this;
 		}
 		~MutantStack() {}
