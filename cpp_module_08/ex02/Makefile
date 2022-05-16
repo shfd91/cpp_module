@@ -2,10 +2,9 @@ CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror
 CPP98		=	-std=c++98
 RM			=	rm -f
-NAME		=	a.out
+NAME		=	ex02
 
-SRC			=	main.cpp \
-				mutantstack.cpp
+SRC			=	main.cpp 
 
 OBJ			=	${SRC:.c=.o}
 

@@ -2,32 +2,53 @@
 
 int main()
 {
-	try {
-		std::vector<int>	v(3);
-		v[0] = 1;
-		v[1] = 2;
-		v[2] = 3;
-		std::vector<int>::iterator i = easyfind(v, 3);
-		std::cout << *i << std::endl;
-	} catch(std::exception& e) {
-		std::cout << e.what() << std::endl;
+	try
+	{
+		std::vector<int> vec;
+		for (int i = 0; i < 5; i++)
+			vec.push_back(i * 10);
+		std::vector<int>::iterator itr = easyfind(vec, 30);
+		std::cout << *itr << std::endl;
 	}
-	try {
-		std::deque<int>		d(3);
-		d[0] = 5;
-		d[1] = 3;
-		d[2] = 2;
-		std::deque<int>::iterator i = easyfind(d, 5);
-		std::cout << *i << std::endl;
-	} catch(std::exception& e) {
-		std::cout << e.what() << std::endl;
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
 	}
-	try {
-		std::list<int>		l(4, 3);
-		std::list<int>::iterator i = easyfind(l, 5);
-		std::cout << *i << std::endl;
-	} catch(std::exception& e) {
-		std::cout << e.what() << std::endl;
+	try
+	{
+		std::list<int> lst;
+		for (int i = 0; i < 5; i++)
+			lst.push_back(i * 100);
+		std::list<int>::iterator itr = easyfind(lst, 200);
+		std::cout << *itr << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		std::deque<int> deq;
+		for (int i = 0; i < 5; i++)
+			deq.push_back(i * 30);
+		std::deque<int>::iterator itr = easyfind(deq, 120);
+		std::cout << *itr << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		std::vector<int> vec;
+		for (int i = 0; i < 5; i++)
+			vec.push_back(i * 10);
+		std::vector<int>::iterator itr = easyfind(vec, 5);
+		std::cout << *itr << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
 	}
 
 	return 0;

@@ -1,5 +1,5 @@
 #ifndef SPAN_HPP
-# define SPAN_HPP
+#define SPAN_HPP
 
 #include <iostream>
 #include <vector>
@@ -11,25 +11,26 @@
 
 class Span {
 	private:
-		std::vector<int>	data;
+		std::vector<int> _vec;
 	public:
-		class DataFullException: public std::exception {
-			public:
-				const char* what() const throw();
-		};
-		class JustOneDataException: public std::exception {
-			public:
-				const char*	what() const throw();
-		};
 		Span();
 		Span(unsigned int N);
 		Span(const Span& s);
 		~Span();
-		void	addNumber(int n);
+		void addNumber(int n);
 		int	shortestSpan();
 		int	longestSpan();
+		void addMaxNumber(int n);
 		Span&	operator=(const Span& s);
-		std::vector<int>	getData() const;
+		std::vector<int>	getVector() const;
+		class DataFullException: public std::exception {
+			public:
+				const char* what() const throw();
+		};
+		class OneDataException: public std::exception {
+			public:
+				const char*	what() const throw();
+		};
 };
 
 #endif

@@ -2,62 +2,59 @@
 
 int main()
 {
-	Span sp = Span(5);
-	sp.addNumber(5);
-	sp.addNumber(3);
-	sp.addNumber(17);
-	sp.addNumber(9);
-	sp.addNumber(11);
-	std::cout << sp.shortestSpan() << std::endl;
-	std::cout << sp.longestSpan() << std::endl;
-
-	std::cout << "---addNumber test---" << std::endl;
-
 	try
 	{
-		Span					sp(0);
-		sp.addNumber(0);
-	}
-	catch (std::exception &e) {
-		std::cerr << e.what() << std::endl;
-	}
-	try
-	{
-		Span					sp(1);
+		Span sp = Span(5);
+
+		sp.addNumber(6);
 		sp.addNumber(3);
-		sp.addNumber(5);
-	}
-	catch (std::exception &e) {
-		std::cerr << e.what() << std::endl;
-	}
+		sp.addNumber(17);
+		sp.addNumber(9);
+		sp.addNumber(11);
 
-	std::cout << "---short_long exception test---" << std::endl;
-
-	try
-	{
-		Span					sp(0);
 		std::cout << sp.shortestSpan() << std::endl;
+		std::cout << sp.longestSpan() << std::endl;
+		std::cout << std::endl;
 	}
-	catch (std::exception &e) {
-		std::cerr << e.what() << std::endl;
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
 	}
 	try
 	{
-		Span					sp(0);
+		Span sp;
+		sp.addNumber(10);
+		std::cout << sp.shortestSpan() << std::endl;
 		std::cout << sp.longestSpan() << std::endl;
 	}
-	catch (std::exception &e) {
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		Span sp(10);
+		sp.addNumber(10);
+		std::cout << sp.shortestSpan() << std::endl;
+		std::cout << sp.longestSpan() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		std::cout << std::endl;
+		Span sp(10000);
+		sp.addMaxNumber(10000);
+
+		std::cout << sp.shortestSpan() << std::endl;
+		std::cout << sp.longestSpan() << std::endl;
+	}
+	catch (std::exception &e)
+	{
 		std::cerr << e.what() << std::endl;
 	}
-
-	std::cout << "---max test---" << std::endl;
-
-	Span						sp1 = Span(10000);
-
-	for (int i = -5000; i <= 4999; i++)
-		sp1.addNumber(i);
-	std::cout << sp1.shortestSpan() << std::endl;
-	std::cout << sp1.longestSpan() << std::endl;
 
 	return 0;
 }
